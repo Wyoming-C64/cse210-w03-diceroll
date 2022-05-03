@@ -25,7 +25,10 @@ class Director:
         self.total_score = 0
 
         for i in range(5):
-            die = Die()
+            # Set the terminal X coordinate for the die to be displayed
+            # (1, 11, 21...)
+            x_coord = (i * 10)+1
+            die = Die(x_coord, 0)
             self.dice.append(die)
 
     def start_game(self):
@@ -80,7 +83,11 @@ class Director:
             die = self.dice[i]
             values += f"{die.value} "
 
-        print(f"You rolled:\t{values}\n".expandtabs(25))
+        # print(f"You rolled:\t{values}\n".expandtabs(25))
+        print(chr(27)+"[2J"+chr(27)+"[H",end="")
+        for i in range(len(self.dice)):
+            self.dice[i].display()
+        print("\n")
         print(f"Score this round:\t{self.score}".expandtabs(25))
         print(f"Your total score is:\t{self.total_score}\n".expandtabs(25))
         self.is_playing = (self.score > 0)

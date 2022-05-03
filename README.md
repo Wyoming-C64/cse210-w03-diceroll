@@ -58,4 +58,4 @@ root                    (project root folder)
 ---
 - [ ] Enhanced input validation.
 - [ ] Enhanced game play and game over messages.
-- [ ] Enhanced game display, e.g. different dice.
+- [x] Enhanced game display, e.g. different dice.
