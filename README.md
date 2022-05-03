@@ -50,9 +50,9 @@ root                    (project root folder)
 ## Program Requirements
 ---
 - [x] This program must include a README file.
-- [ ] The program must include class and method comments.
-- [ ] The program must have at least two (2) classes.
-- [ ] The program must remain true to the gameplay described in the overview.
+- [x] The program must include class and method comments.
+- [x] The program must have at least two (2) classes.
+- [x] The program must remain true to the gameplay described in the overview.
 
 ## Possible Enhancements
 ---
