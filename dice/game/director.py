@@ -83,4 +83,4 @@ class Director:
         print(f"You rolled:\t{values}\n".expandtabs(25))
         print(f"Score this round:\t{self.score}".expandtabs(25))
         print(f"Your total score is:\t{self.total_score}\n".expandtabs(25))
-        self.is_playing == (self.score > 0)
+        self.is_playing = (self.score > 0)
