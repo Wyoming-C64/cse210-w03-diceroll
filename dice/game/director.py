@@ -59,7 +59,7 @@ class Director:
 
         # Bugfix: Round score needs to be reset before rolling the dice again.
         self.score = 0
-        
+
         for i in range(len(self.dice)):
             die = self.dice[i]
             die.roll()
@@ -80,6 +80,7 @@ class Director:
             die = self.dice[i]
             values += f"{die.value} "
 
-        print(f"You rolled: {values}")
-        print(f"Your score is: {self.total_score}\n")
+        print(f"You rolled:\t{values}\n".expandtabs(25))
+        print(f"Score this round:\t{self.score}".expandtabs(25))
+        print(f"Your total score is:\t{self.total_score}\n".expandtabs(25))
         self.is_playing == (self.score > 0)
