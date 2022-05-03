@@ -57,6 +57,9 @@ class Director:
         if not self.is_playing:
             return 
 
+        # Bugfix: Round score needs to be reset before rolling the dice again.
+        self.score = 0
+        
         for i in range(len(self.dice)):
             die = self.dice[i]
             die.roll()
