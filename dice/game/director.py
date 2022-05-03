@@ -31,12 +31,28 @@ class Director:
             die = Die(x_coord, 0)
             self.dice.append(die)
 
+    def show_title(self):
+        """Shows a title screen and displays the rules of the game.
+        
+        Args:
+            self (Director): an instance of Director.
+        """
+        print("\33[2J\33[H")    # Clear/Home Screen
+        print("DICE\n")
+        print("The rules are simple. Roll the dice. Count the 1s and 5s. Each 1 is worth")
+        print("100 points, each 5 is worth 50 points. As long as you roll at least a 1")
+        print("or a 5 you can keep playing and add to your score.\n")
+        print("If you do not roll any 1s or 5s, the game is over.\n")
+
+
     def start_game(self):
         """Starts the game by running the main game loop.
         
         Args:
             self (Director): an instance of Director.
         """
+        self.show_title()
+        
         while self.is_playing:
             self.get_inputs()
             self.do_updates()
@@ -83,7 +99,6 @@ class Director:
             die = self.dice[i]
             values += f"{die.value} "
 
-        # print(f"You rolled:\t{values}\n".expandtabs(25))
         print(chr(27)+"[2J"+chr(27)+"[H",end="")
         for i in range(len(self.dice)):
             self.dice[i].display()
@@ -91,3 +106,8 @@ class Director:
         print(f"Score this round:\t{self.score}".expandtabs(25))
         print(f"Your total score is:\t{self.total_score}\n".expandtabs(25))
         self.is_playing = (self.score > 0)
+
+        # If player didn't score, let player know game is over.
+        if not self.is_playing:
+            print("\nSorry, you failed to roll a 1 or a 5 this round. The game is over.")
+            print(f"Your final score is {self.total_score}.\n")

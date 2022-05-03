@@ -50,7 +50,7 @@ class Die:
         RVS_YELLOW = chr(27)+"[48;5;226m"+chr(27)+"[38;5;0m"
         
         NORMAL = chr(27)+"[38;5;248m"+chr(27)+"[48;5;0m"
-        RVS_NORMAL = chr(27)+"[48;5;248m"+chr(27)+"[38;5;0m"
+        RVS_NORMAL = chr(27)+"[48;5;245m"+chr(27)+"[38;5;0m"
         
         RVS_WHITE = chr(27)+"[48;5;255m"+chr(27)+"[38;5;0m"
 
