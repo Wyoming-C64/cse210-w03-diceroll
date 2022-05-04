@@ -1,5 +1,5 @@
 import random
-
+from time import sleep
 
 # 1) Add the class declaration. Use the following class comment.
 class Die:
@@ -42,9 +42,10 @@ class Die:
         else:
             self.points = 0
 
+
     def display(self):
         SCREEN_HOME = chr(27) + "[H"
-        FACE_LINE_HOME = chr(27) + "[5D"
+        FACE_LINE_HOME = chr(27) + "[7D"
         DOWN = chr(27) + "[1B"
 
         RVS_YELLOW = chr(27)+"[48;5;226m"+chr(27)+"[38;5;0m"
@@ -57,36 +58,36 @@ class Die:
         face = [ '',
             # 1
             RVS_YELLOW +
-            '     ' + FACE_LINE_HOME + DOWN +
-            '  ■  ' + FACE_LINE_HOME + DOWN +
-            '     ' + FACE_LINE_HOME + DOWN + NORMAL,
+            '       ' + FACE_LINE_HOME + DOWN +
+            '   ■   ' + FACE_LINE_HOME + DOWN +
+            '       ' + FACE_LINE_HOME + DOWN + NORMAL,
             # 2
             RVS_NORMAL +
-            ' ■   ' + FACE_LINE_HOME + DOWN +
-            '     ' + FACE_LINE_HOME + DOWN +
-            '   ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■     ' + FACE_LINE_HOME + DOWN +
+            '       ' + FACE_LINE_HOME + DOWN +
+            '     ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
             # 3
             RVS_NORMAL +
-            ' ■   ' + FACE_LINE_HOME + DOWN +
-            '  ■  ' + FACE_LINE_HOME + DOWN +
-            '   ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■     ' + FACE_LINE_HOME + DOWN +
+            '   ■   ' + FACE_LINE_HOME + DOWN +
+            '     ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
             # 4
             RVS_NORMAL +
-            ' ■ ■ ' + FACE_LINE_HOME + DOWN +
-            '     ' + FACE_LINE_HOME + DOWN +
-            ' ■ ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■   ■ ' + FACE_LINE_HOME + DOWN +
+            '       ' + FACE_LINE_HOME + DOWN +
+            ' ■   ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
             # 5
             RVS_WHITE +
-            ' ■ ■ ' + FACE_LINE_HOME + DOWN +
-            '  ■  ' + FACE_LINE_HOME + DOWN +
-            ' ■ ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■   ■ ' + FACE_LINE_HOME + DOWN +
+            '   ■   ' + FACE_LINE_HOME + DOWN +
+            ' ■   ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
             # 6
             RVS_NORMAL +
-            ' ■ ■ ' + FACE_LINE_HOME + DOWN +
-            ' ■ ■ ' + FACE_LINE_HOME + DOWN +
-            ' ■ ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■   ■ ' + FACE_LINE_HOME + DOWN +
+            ' ■   ■ ' + FACE_LINE_HOME + DOWN +
+            ' ■   ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
             ]
-
+        
         print(chr(27)+f"[{self.y};{self.x}H",end='')
         print(face[self.value],end='')
         print(chr(27)+"[0;37m")
