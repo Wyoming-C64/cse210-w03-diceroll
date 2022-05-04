@@ -1,5 +1,5 @@
 import random
-from time import sleep
+from game.ansi import ANSI
 
 # 1) Add the class declaration. Use the following class comment.
 class Die:
@@ -44,53 +44,50 @@ class Die:
 
 
     def display(self):
-        SCREEN_HOME = chr(27) + "[H"
-        FACE_LINE_HOME = chr(27) + "[7D"
-        DOWN = chr(27) + "[1B"
 
-        RVS_YELLOW = chr(27)+"[48;5;226m"+chr(27)+"[38;5;0m"
-        
-        NORMAL = chr(27)+"[38;5;248m"+chr(27)+"[48;5;0m"
-        RVS_NORMAL = chr(27)+"[48;5;245m"+chr(27)+"[38;5;0m"
-        
-        RVS_WHITE = chr(27)+"[48;5;255m"+chr(27)+"[38;5;0m"
+        ansi = ANSI()
+
+        FACE_LINE_HOME = ansi.left(7)        
+        RVS_NORMAL  = ansi.palette_color(0,241)
+        RVS_YELLOW  = ansi.palette_color(0,220)
+        RVS_WHITE   = ansi.palette_color(0,255)
 
         face = [ '',
             # 1
             RVS_YELLOW +
-            '       ' + FACE_LINE_HOME + DOWN +
-            '   ■   ' + FACE_LINE_HOME + DOWN +
-            '       ' + FACE_LINE_HOME + DOWN + NORMAL,
+            '       ' + FACE_LINE_HOME + ansi.DOWN +
+            '   ■   ' + FACE_LINE_HOME + ansi.DOWN +
+            '       ' + FACE_LINE_HOME + ansi.DOWN + ansi.DEFAULT,
             # 2
             RVS_NORMAL +
-            ' ■     ' + FACE_LINE_HOME + DOWN +
-            '       ' + FACE_LINE_HOME + DOWN +
-            '     ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■     ' + FACE_LINE_HOME + ansi.DOWN +
+            '       ' + FACE_LINE_HOME + ansi.DOWN +
+            '     ■ ' + FACE_LINE_HOME + ansi.DOWN + ansi.DEFAULT,
             # 3
             RVS_NORMAL +
-            ' ■     ' + FACE_LINE_HOME + DOWN +
-            '   ■   ' + FACE_LINE_HOME + DOWN +
-            '     ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■     ' + FACE_LINE_HOME + ansi.DOWN +
+            '   ■   ' + FACE_LINE_HOME + ansi.DOWN +
+            '     ■ ' + FACE_LINE_HOME + ansi.DOWN + ansi.DEFAULT,
             # 4
             RVS_NORMAL +
-            ' ■   ■ ' + FACE_LINE_HOME + DOWN +
-            '       ' + FACE_LINE_HOME + DOWN +
-            ' ■   ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■   ■ ' + FACE_LINE_HOME + ansi.DOWN +
+            '       ' + FACE_LINE_HOME + ansi.DOWN +
+            ' ■   ■ ' + FACE_LINE_HOME + ansi.DOWN + ansi.DEFAULT,
             # 5
             RVS_WHITE +
-            ' ■   ■ ' + FACE_LINE_HOME + DOWN +
-            '   ■   ' + FACE_LINE_HOME + DOWN +
-            ' ■   ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■   ■ ' + FACE_LINE_HOME + ansi.DOWN +
+            '   ■   ' + FACE_LINE_HOME + ansi.DOWN +
+            ' ■   ■ ' + FACE_LINE_HOME + ansi.DOWN + ansi.DEFAULT,
             # 6
             RVS_NORMAL +
-            ' ■   ■ ' + FACE_LINE_HOME + DOWN +
-            ' ■   ■ ' + FACE_LINE_HOME + DOWN +
-            ' ■   ■ ' + FACE_LINE_HOME + DOWN + NORMAL,
+            ' ■   ■ ' + FACE_LINE_HOME + ansi.DOWN +
+            ' ■   ■ ' + FACE_LINE_HOME + ansi.DOWN +
+            ' ■   ■ ' + FACE_LINE_HOME + ansi.DOWN + ansi.DEFAULT,
             ]
         
-        print(chr(27)+f"[{self.y};{self.x}H",end='')
+        ansi.pos_xy(self.x, self.y)
         print(face[self.value],end='')
-        print(chr(27)+"[0;37m")
+        print(ansi.DEFAULT)
         return
 
 
