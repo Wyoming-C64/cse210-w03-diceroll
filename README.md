@@ -42,6 +42,7 @@ root                    (project root folder)
 ## Required Technologies
 ---
 * Python 3.8.0 or better
+* Terminal capable of processing ANSI control codes.
 
 ## Authors
 ---
