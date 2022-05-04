@@ -56,6 +56,6 @@ root                    (project root folder)
 
 ## Possible Enhancements
 ---
-- [ ] Enhanced input validation.
+- [x] Enhanced input validation.
 - [x] Enhanced game play and game over messages.
 - [x] Enhanced game display, e.g. different dice.
