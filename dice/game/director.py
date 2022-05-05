@@ -1,6 +1,4 @@
-from re import S
 from game.die import Die
-
  
 class Director:
     """A person who directs the game. 
