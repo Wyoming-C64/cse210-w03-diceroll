@@ -128,12 +128,7 @@ class Director:
         """
         if not self.is_playing:
             return
-        
-        values = ""
-        for i in range(len(self.dice)):
-            die = self.dice[i]
-            values += f"{die.value} "
-
+            
         print(chr(27)+"[2J"+chr(27)+"[H",end="")
         for i in range(len(self.dice)):
             self.dice[i].display()
